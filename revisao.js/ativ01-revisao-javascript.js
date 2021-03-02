@@ -25,7 +25,6 @@ let estado1 = {
    populacao: 2278308
 }
 
-estadosNe.push(estado1)
 
 /*
    1) Crie objetos para os demais Estados, segundo o modelo acima, e acrescente-os
@@ -106,12 +105,15 @@ for (let i = 0; i < estadosNe.length; i++) {
       para extrair as propriedades e seus valores e exibi-los com console.log().
 
 */
-const infoEstados = (objeto) => {for (let atributo in objeto) console.log(atributo)}
-infoEstados(estadosNe[1])
+const infoEstados = (objeto) => {for (const key in objeto) console.log(key + " - " + objeto[key])}
 
 /* 5) Percorra o vetor estadosNe usando for..of. Para cada objeto no vetor,
       invoque a função escrita em 4) para exibi-lo.
-
+*/
+for (let objeto of estadosNe) {
+    infoEstados(objeto)
+    console.log('---------------')
+}
 /*
    6)
       a) Declare um vetor vazio.
@@ -124,3 +126,9 @@ infoEstados(estadosNe[1])
          já existentes, e assim por diante.
 
 */
+let nomeEstados = []
+
+nomeEstados.unshift(estadosNe[1].nome)
+nomeEstados.splice(2,0,estadosNe[8].nome, estadosNe[5].nome, estadosNe[7].nome, estadosNe[3].nome,estadosNe[4].nome,estadosNe[6].nome, estadosNe[2].nome)
+nomeEstados.push(estadosNe[0].nome)
+console.table(nomeEstados)
